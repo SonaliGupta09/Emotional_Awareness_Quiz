@@ -4,47 +4,33 @@
   <meta charset="UTF-8">
   <title>Introvert or Extrovert Quiz</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background: #f5f5f5;
-    }
-    .question-box {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      max-width: 600px;
-      margin: auto;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    button {
-      margin: 20px 10px;
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .yes-btn {
-      background-color: #4CAF50;
-      color: white;
-    }
-    .no-btn {
-      background-color: #f44336;
-      color: white;
-    }
-    .result-screen {
-      display: none;
-      font-size: 28px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
+    <body>
+
+<!-- INTRO SCREEN -->
+<div id="introBox">
+  <h2>🌿 Are you an introvert or extrovert?</h2>
+  <p>Know by this small assessment.</p>
+  <button onclick="startQuiz()" style="margin-top: 20px; padding: 10px 20px; font-size: 16px;">Start Quiz</button>
+</div>
+
+<!-- QUESTION SCREEN -->
+<div class="question-box" id="quizBox" style="display: none;">
+  <p id="questionText">Loading question...</p>
+  <div>
+    <button class="yes-btn" onclick="answer('yes')">Yes</button>
+    <button class="no-btn" onclick="answer('no')">No</button>
+  </div>
+</div>
+
+<!-- RESULT SCREEN -->
+<div class="result-screen" id="resultScreen">
+  <!-- Result will be shown here -->
+</div>
+
 
 <div class="question-box" id="quizBox">
   <h2>🌿 Are You an Introvert or Extrovert?</h2>
+  <p>Know by this small assessment.</p>
   <p id="questionText">Loading question...</p>
   <div>
     <button class="yes-btn" onclick="answer('yes')">Yes</button>
