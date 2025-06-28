@@ -79,6 +79,11 @@
     currentQuestion++;
     showQuestion();
   }
+  function startQuiz() {
+  document.getElementById("introBox").style.display = "none";
+  document.getElementById("quizBox").style.display = "block";
+  showQuestion();
+}
 
   function showResult() {
     quizBox.style.display = "none";
@@ -98,7 +103,7 @@
   }
 
   // Load first question
-  showQuestion();
+
 </script>
 
 </body>
