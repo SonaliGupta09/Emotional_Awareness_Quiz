@@ -1,3 +1,9 @@
+function startQuiz() {
+  document.getElementById("introBox").style.display = "none";
+  document.getElementById("quizBox").style.display = "block";
+  showQuestion();
+}
+
 function calculate() {
   const form = document.forms['quizForm'];
   let yesCount = 0;
