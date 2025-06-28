@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Introvert or Extrovert Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f5f5f5;
+    }
+    .question-box {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    button {
+      margin: 20px 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .yes-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .no-btn {
+      background-color: #f44336;
+      color: white;
+    }
+    .result-screen {
+      display: none;
+      font-size: 28px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="question-box" id="quizBox">
+  <h2>🌿 Are You an Introvert or Extrovert?</h2>
+  <p id="questionText">Loading question...</p>
+  <div>
+    <button class="yes-btn" onclick="answer('yes')">Yes</button>
+    <button class="no-btn" onclick="answer('no')">No</button>
+  </div>
+</div>
+
+<div class="result-screen" id="resultScreen">
+  <!-- Result will be shown here -->
+</div>
+
+<script>
+  const questions = [
+    "I prefer one-on-one conversations to group activities.",
+    "I often feel drained after socializing, even if I enjoyed it.",
+    "I enjoy solitude and need it to recharge.",
+    "I prefer expressing myself in writing rather than speaking.",
+    "I dislike small talk but enjoy deep conversations.",
+    "I tend to think before I speak.",
+    "I often feel overwhelmed by busy environments.",
+    "I’m more productive when working alone.",
+    "I feel most energized in calm, quiet settings.",
+    "I prefer to listen more than talk in conversations."
+  ];
+
+  let currentQuestion = 0;
+  let yesCount = 0;
+  let noCount = 0;
+
+  const questionText = document.getElementById("questionText");
+  const quizBox = document.getElementById("quizBox");
+  const resultScreen = document.getElementById("resultScreen");
+
+  function showQuestion() {
+    if (currentQuestion < questions.length) {
+      questionText.innerText = questions[currentQuestion];
+    } else {
+      showResult();
+    }
+  }
+
+  function answer(response) {
+    if (response === 'yes') yesCount++;
+    else if (response === 'no') noCount++;
+
+    currentQuestion++;
+    showQuestion();
+  }
+
+  function showResult() {
+    quizBox.style.display = "none";
+    resultScreen.style.display = "block";
+
+    let resultText = "";
+
+    if (yesCount > noCount) {
+      resultText = "🌟 You likely lean Introvert 🌿";
+    } else if (noCount > yesCount) {
+      resultText = "🌟 You may lean Extrovert ☀️";
+    } else {
+      resultText = "🌟 You may be an Ambivert ✨";
+    }
+
+    resultScreen.innerHTML = `<p>${resultText}</p>`;
+  }
+
+  // Load first question
+  showQuestion();
+</script>
+
+</body>
+</html>
